@@ -1,0 +1,36 @@
+{
+    "name": "osu-syntax",
+    "displayName": "osu! syntax highlighting",
+    "description": "Syntax highlighting for osu! beatmap and storyboard files.",
+    "version": "1.0.0",
+    "publisher": "ekgame",
+    "icon": "/img/icon.png",
+    "engines": {
+        "vscode": "^1.30.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "osb",
+            "aliases": ["osu! storyboard", "osb"],
+            "extensions": [".osb"],
+            "configuration": "./language-configuration.json"
+        },{
+            "id": "osu",
+            "aliases": ["osu! beatmap", "osu"],
+            "extensions": [".osu"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "osb",
+            "scopeName": "source.osb",
+            "path": "./syntaxes/osb.tmLanguage.json"
+        },{
+            "language": "osu",
+            "scopeName": "source.osu",
+            "path": "./syntaxes/osu.tmLanguage.json"
+        }]
+    }
+}

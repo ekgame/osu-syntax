@@ -1,0 +1,36 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "osu! beatmap",
+  "scopeName": "source.osu",
+  "patterns": [
+    {
+      "include": "source.osb"
+    },
+    {
+      "include": "source.ini"
+    },
+    {
+      "match": "osu file format v[0-9]+",
+      "name": "meta.tag.metadata.doctype.osu"
+    },
+    {
+      "begin": "^(\\w+)\\s*:",
+      "beginCaptures": {
+        "0": {
+          "name": "variable.other.constant"
+        }
+      },
+      "end": "\\n|(?=\\?>)",
+      "patterns": [
+        {
+          "match": ".",
+          "name": "string.quoted.double"
+        }
+      ]
+    },
+    {
+      "match": "[A-Z](\\|[0-9]+:[0-9]+)+",
+      "name": "string.quoted.single"
+    }
+  ]
+}
